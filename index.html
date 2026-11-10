@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPath Kenya | Education Made Easier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="#home" class="logo">CareerPath <span>Kenya</span></a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#institutions">Institutions</a>
+        <a href="#accommodation">Accommodation</a>
+        <a href="#appointments">Appointments</a>
+        <a href="#assistant">AI Assistant</a>
+    </nav>
+
+    <a href="#institutions" class="register-btn">Get Started</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="hero-label">YOUR FUTURE STARTS HERE</span>
+        <h1>Find Your Institution. Choose Your Course. Apply With Confidence.</h1>
+        <p>
+            Explore universities, colleges and TVET institutions across Kenya.
+            Compare admission requirements, fees and accommodation without
+            travelling from one institution to another.
+        </p>
+        <a href="#institutions" class="hero-button">Explore Institutions</a>
+    </div>
+</section>
+
+<!-- INSTITUTION SEARCH -->
+<section id="institutions">
+    <div class="section-heading">
+        <span class="section-label">EDUCATION OPPORTUNITIES</span>
+        <h2>Discover Institutions in Kenya</h2>
+        <p>Search by institution, course or location.</p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="institutionSearch"
+               placeholder="Search institution, course or county">
+
+        <select id="institutionType">
+            <option value="">All institution types</option>
+            <option value="University">University</option>
+            <option value="College">College</option>
+            <option value="TVET">TVET</option>
+        </select>
+
+        <button id="searchInstitutions">Search</button>
+    </div>
+
+    <div id="institutionResults" class="results-container"></div>
+
+    <div id="institutionDetails" class="institution-details" hidden>
+        <button class="close-btn" onclick="closeInstitution()">✕ Close</button>
+
+        <span class="section-label">INSTITUTION PROFILE</span>
+        <h2 id="detailInstitutionName"></h2>
+        <p id="detailInstitutionLocation"></p>
+
+        <div class="profile-information">
+            <div>
+                <h3>Courses and Programmes</h3>
+                <p id="detailCourses">Course information pending verification.</p>
+            </div>
+
+            <div>
+                <h3>KCSE Admission Requirements</h3>
+                <p id="detailRequirements">Official requirements pending verification.</p>
+            </div>
+
+            <div>
+                <h3>Fees Information</h3>
+                <p id="detailFees">Official fees pending verification.</p>
+            </div>
+
+            <div>
+                <h3>Accommodation</h3>
+                <p id="detailAccommodation">Accommodation information pending verification.</p>
+            </div>
+        </div>
+
+        <button class="primary-btn" onclick="openApplication()">
+            Apply Now
+        </button>
+
+        <button class="secondary-btn" onclick="openAppointment()">
+            Book Appointment
+        </button>
+    </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section id="application" class="alternate-section">
+    <div class="section-heading">
+        <span class="section-label">START YOUR JOURNEY</span>
+        <h2>Institution Application</h2>
+        <p>Submit your details to express interest in an institution.</p>
+    </div>
+
+    <form id="applicationForm" class="main-form">
+        <label>Full Name</label>
+        <input type="text" name="fullName" required placeholder="Enter your full name">
+
+        <label>Email Address</label>
+        <input type="email" name="email" required placeholder="Enter your email">
+
+        <label>Phone Number</label>
+        <input type="tel" name="phone" required placeholder="07XXXXXXXX">
+
+        <label>KCSE Grade</label>
+        <select name="kcseGrade" required>
+            <option value="">Select your KCSE grade</option>
+            <option>A</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B</option>
+            <option>B-</option>
+            <option>C+</option>
+            <option>C</option>
+            <option>C-</option>
+            <option>D+</option>
+            <option>D</option>
+            <option>D-</option>
+            <option>E</option>
+        </select>
+
+        <label>Institution</label>
+        <input type="text" id="applicationInstitution"
+               name="institution" required placeholder="Institution name">
+
+        <label>Course Interested In</label>
+        <input type="text" name="course" required placeholder="Enter preferred course">
+
+        <label>Additional Information</label>
+        <textarea name="message" rows="4"
+                  placeholder="Tell us anything else about your application"></textarea>
+
+        <button type="submit" class="primary-btn">Submit Application</button>
+        <p id="applicationMessage" class="form-message"></p>
+    </form>
+</section>
+
+<!-- APPOINTMENTS -->
+<section id="appointments">
+    <div class="section-heading">
+        <span class="section-label">CONNECT WITH INSTITUTIONS</span>
+        <h2>Book an Appointment</h2>
+        <p>Request a meeting with an institution's admissions office.</p>
+    </div>
+
+    <form id="appointmentForm" class="main-form">
+        <label>Full Name</label>
+        <input type="text" name="fullName" required placeholder="Your full name">
+
+        <label>Phone Number</label>
+        <input type="tel" name="phone" required placeholder="Your phone number">
+
+        <label>Email Address</label>
+        <input type="email" name="email" required placeholder="Your email">
+
+        <label>Institution</label>
+        <input type="text" id="appointmentInstitution"
+               name="institution" required placeholder="Institution name">
+
+        <label>Preferred Appointment Date</label>
+        <input type="date" name="date" required>
+
+        <label>Preferred Time</label>
+        <input type="time" name="time" required>
+
+        <label>Reason for Appointment</label>
+        <select name="reason" required>
+            <option value="">Select reason</option>
+            <option>Course and career guidance</option>
+            <option>Admission requirements</option>
+            <option>Application assistance</option>
+            <option>Fees and payment information</option>
+            <option>Other enquiry</option>
+        </select>
+
+        <button type="submit" class="primary-btn">Request Appointment</button>
+        <p id="appointmentMessage" class="form-message"></p>
+    </form>
+</section>
+
+<!-- ACCOMMODATION -->
+<section id="accommodation" class="alternate-section">
+    <div class="section-heading">
+        <span class="section-label">STUDENT LIVING</span>
+        <h2>Find Accommodation</h2>
+        <p>Explore places to stay near your preferred institution.</p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="locationSearch"
+               placeholder="Enter town or institution">
+
+        <select id="accommodationType">
+            <option value="">All accommodation</option>
+            <option value="Hostel">Hostel</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Bedsitter">Bedsitter</option>
+        </select>
+
+        <button id="searchAccommodation">Search</button>
+    </div>
+
+    <div id="accommodationResults" class="results-container"></div>
+</section>
+
+<!-- AI ASSISTANT -->
+<section id="assistant">
+    <div class="assistant-panel">
+        <span class="section-label">CAREERPATH AI</span>
+        <h2>Your Education and Career Assistant</h2>
+        <p>
+            Get guidance on choosing courses, understanding KCSE requirements,
+            exploring careers and completing application forms.
+        </p>
+
+        <div class="chat-window" id="chatWindow">
+            <div class="bot-message">
+                Hello! Welcome to CareerPath Kenya. How can I help you
+                with your education journey?
+            </div>
+        </div>
+
+        <form id="chatForm" class="chat-form">
+            <input type="text" id="chatInput"
+                   placeholder="Ask about courses, careers or applications..."
+                   required>
+            <button type="submit">Send</button>
+        </form>
+
+        <p class="chat-note">AI assistance demonstration. Live AI connection will be added later.</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>CareerPath Kenya</h2>
+    <p>Making education opportunities easier to discover and access.</p>
+    <p>© 2026 CareerPath Kenya. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
